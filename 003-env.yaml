@@ -11,7 +11,7 @@ spec:
       - containerPort: 80
     env:
       - name: BATCH
-        value: 57
+        value: "57"
       - name: ENVIRONMENT
         value: "dev" 
       - name: MONGO_URL
