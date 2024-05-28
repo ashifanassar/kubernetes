@@ -46,5 +46,5 @@ spec:
         value: "payment" 
       - name: APP_OWNER
         value: "team-x"
-      - name: BATCH 
+      - name: BATCH         # If you wish to override the values from the configMap 
         value: "60"
