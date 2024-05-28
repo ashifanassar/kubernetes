@@ -46,3 +46,5 @@ spec:
         value: "payment" 
       - name: APP_OWNER
         value: "team-x"
+      - name: BATCH 
+        value: "60"
