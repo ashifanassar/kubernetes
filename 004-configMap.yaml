@@ -25,3 +25,24 @@ spec:
     envFrom:
     - configMapRef:
         name: nginx-cm
+  
+--- 
+# Pod with ConfigMap 
+apiVersion: v1
+kind: Pod
+metadata:
+  name: payment
+spec:
+  containers:
+  - name: nginx-cnt
+    image: nginx:latest 
+    ports:
+      - containerPort: 80
+    envFrom:
+    - configMapRef:
+        name: nginx-cm
+    env: 
+      - name: APPNAME
+        value: "payment" 
+      - name: APP_OWNER
+        value: "team-x"
