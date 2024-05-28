@@ -11,11 +11,11 @@ spec:
     - containerPort: 8080
     readinessProbe:
       tcpSocket:
-        port: 9000
+        port: 8080
       initialDelaySeconds: 15
       periodSeconds: 10
     livenessProbe:
       tcpSocket:
-        port: 8080
+        port: 9000
       initialDelaySeconds: 15
       periodSeconds: 10
