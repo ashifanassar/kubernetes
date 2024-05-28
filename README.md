@@ -133,7 +133,7 @@
 ```
     $ kubectl create -f fileName.yml 
 
-    $ kubectl update -f fileName.yml 
+    $ kubectl apply -f fileName.yml 
 ```
 
 
