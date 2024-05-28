@@ -28,3 +28,20 @@ spec:
       limits:
         memory: "128Mi"
         cpu: "500m"
+--- 
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: frontend-xlarge
+spec:
+  containers:
+  - name: app
+    image: nginx 
+    resources:
+      requests:
+        memory: "10240Mi"
+        cpu: "12"
+      limits:
+        memory: "20480Mi"
+        cpu: "24"
