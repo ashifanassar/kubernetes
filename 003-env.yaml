@@ -10,13 +10,13 @@ spec:
     ports:
       - containerPort: 80
     env:
-    - name: BATCH
-      value: 57
-    - name: ENVIRONMENT
-      value: "dev" 
-    - MONGO_URL:
-      value: "mongodb.cc.com"
-    - name: BU 
-      value: "payment" 
-    - name: MANAGER 
-      value: "Steve"
+      - name: BATCH
+        value: 57
+      - name: ENVIRONMENT
+        value: "dev" 
+      - MONGO_URL:
+        value: "mongodb.cc.com"
+      - name: BU 
+        value: "payment" 
+      - name: MANAGER 
+        value: "Steve"
