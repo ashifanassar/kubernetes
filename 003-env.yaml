@@ -14,7 +14,7 @@ spec:
         value: 57
       - name: ENVIRONMENT
         value: "dev" 
-      - MONGO_URL:
+      - name: MONGO_URL
         value: "mongodb.cc.com"
       - name: BU 
         value: "payment" 
