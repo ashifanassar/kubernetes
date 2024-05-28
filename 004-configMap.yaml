@@ -9,4 +9,19 @@ data:
   MANAGER: "steve"
   MONGO_URL: "mongodb.cc.com"
 
+--- 
 
+# Pod with ConfigMap 
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-with-cm
+spec:
+  containers:
+  - name: nginx-cnt
+    image: nginx:latest 
+    ports:
+      - containerPort: 80
+    envFrom:
+    - configMapRef:
+        name: nginx-cm
