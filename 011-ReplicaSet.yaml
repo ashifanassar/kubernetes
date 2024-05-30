@@ -1,11 +1,9 @@
-# Provisions Replica Set 
-
 apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
-  name: frontend-rs 
+  name: frontend
   labels:                                         # labels applied to SET 
-    app: guestbook
+    app: roboshop
     tier: frontend
 spec:
   # modify replicas according to your case
@@ -19,12 +17,8 @@ spec:
         tier: frontend
     spec:
       containers:
-      - name: php-redis
-        image: us-docker.pkg.dev/google-samples/containers/gke/gb-frontend:v5
+      - name: nginx 
+        image: nginx:mainline-perl
 
-
-### In k8's, labels and selectors are very important
-### Main goal of the replica-set is to ensure the mentioend number of pods running all the time
-
-### Remember once a resource is created, you cannot update any value apart from the image , replicas.
-### Any changes apart from those 2 needs to be created as a brand new resource.
+### Replicaset is not going to support the update of the version from x to y 
+### Main job of the replicaset is to ensure the mentioned number of pods are running or not and that's the main goal. 
