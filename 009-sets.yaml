@@ -1,0 +1,9 @@
+# >>> Running applications directly by creating pods is not a right or prod way.
+
+# ! We use SET's and these set's will ensure the creation and the maintenance of the pods.
+
+
+# 1) Replica Set      : This only ensure you the mentioned number of pods at any point of time and if any of the pod fails, schedule instructs the KUBELET to create one more pod immediately.
+# 2) Deployment Set   : This ensure at any point of time, the desired number of replicas as available and at the same time, this offers you to move the applicaion from One verison to other version.
+# 3) Stateful Set 
+# 4) Daemon Set    
