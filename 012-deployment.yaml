@@ -1,24 +1,42 @@
+### Deployment Set with Recreation Strategy
 apiVersion: apps/v1
-kind: ReplicaSet
+kind: Deployment
 metadata:
-  name: frontend
-  labels:                                         # labels applied to SET 
-    app: roboshop
-    tier: frontend
+  name: httpd-deployment
+  labels:
+    app: httpd
 spec:
-  # modify replicas according to your case
-  replicas: 5
-  selector:                                       # This determines which pod should go and attach to teh set
+  replicas: 3
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 50
+  selector:
     matchLabels:
-      tier: frontend
-  template:                                       # labels applied to the created pod 
+      app: httpd
+  template:
     metadata:
       labels:
-        tier: frontend
+        app: httpd
     spec:
       containers:
-      - name: nginx 
-        image: nginx:mainline-perl
+      - name: nginx
+        image: nginx
+        ports:              # port where your container listens
+        - containerPort: 80 
 
-### Replicaset is not going to support the update of the version from x to y 
-### Main job of the replicaset is to ensure the mentioned number of pods are running or not and that's the main goal. 
+--- 
+# ClusterIP is a service, that is used for inter-service communication and this cannot be accessed from the internet.
+apiVersion: v1
+kind: Service
+metadata:
+  name: httpd-svc
+spec:
+  selector:
+    app: httpd
+  ports:
+    - protocol: TCP
+      port: 80              # Port where your service listens against
+      targetPort: 80        # This is the port where kubernetes service will forward the request to associated pod 
+
+# IF you don't mention the service type, it's by default going to be ClusterIP
