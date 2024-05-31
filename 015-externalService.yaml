@@ -1,0 +1,15 @@
+# Services of type ExternalName map a Service to a DNS name, not to a typical selector such as my-service or cassandra. You specify these Services with the spec.externalName parameter.
+
+# This Service definition, for example, maps the my-service Service in the prod namespace to my.database.example.com:
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: cassandra-svc
+  namespace: prod
+spec:
+  type: ExternalName
+  externalName: cassandara-dev-usc1-gcp.database.roboshop.internal
+
+
+### You DB is not accessible with in the cluster on sassandra-svc
